@@ -1,16 +1,22 @@
-package com.ftovaro.articlereader;
+package com.ftovaro.articlereader.activities;
 
+import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.ftovaro.articlereader.R;
 import com.ftovaro.articlereader.adapters.ViewPagerAdapter;
 import com.ftovaro.articlereader.fragments.FeedFragment;
+import com.ftovaro.articlereader.fragments.HighlightArticleFragment;
 import com.ftovaro.articlereader.fragments.WebFragment;
+import com.ftovaro.articlereader.model.Article;
+import com.ftovaro.articlereader.util.SetUpHighlightArticle;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
@@ -71,4 +76,5 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(0).setIcon(tabIcons[0]);
         tabLayout.getTabAt(1).setIcon(tabIcons[1]);
     }
+
 }
