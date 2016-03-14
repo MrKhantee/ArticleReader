@@ -20,7 +20,8 @@ import com.ftovaro.articlereader.R;
 import com.ftovaro.articlereader.interfaces.SettingsDialogListener;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Manage the AlertDialog that is shown to the user.
+ * Created by FelipeTovar on 09-Mar-16.
  */
 public class SettingsDialogFragment extends DialogFragment {
 
