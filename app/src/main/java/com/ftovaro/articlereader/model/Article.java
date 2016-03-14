@@ -1,7 +1,8 @@
 package com.ftovaro.articlereader.model;
 
 /**
- * Created by ftova on 09-Mar-16.
+ * Represents an Article.
+ * Created by FelipeTovar on 09-Mar-16.
  */
 public class Article {
 

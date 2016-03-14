@@ -1,7 +1,8 @@
 package com.ftovaro.articlereader.network;
 
 /**
- * Created by ftova on 09-Mar-16.
+ * A class to simplify volley calls.
+ * Created by FelipeTovar on 09-Mar-16.
  */
 import android.app.Application;
 import android.text.TextUtils;

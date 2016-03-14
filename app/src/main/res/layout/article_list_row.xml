@@ -10,6 +10,7 @@
     card_view:cardElevation="3dp">
 
     <RelativeLayout
+        android:id="@+id/relative_layout_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="16dp"
@@ -20,12 +21,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/image"
-            android:maxLines="5"
-            android:ellipsize="end"
             android:layout_alignTop="@+id/image"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/image"
-             />
+            android:ellipsize="end"
+            android:maxLines="5" />
 
         <com.android.volley.toolbox.NetworkImageView
             android:id="@+id/image"

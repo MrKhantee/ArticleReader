@@ -12,16 +12,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by ftova on 09-Mar-16.
+ * Manage the parse of information.
+ * Created by FelipeTovar on 09-Mar-16.
  */
 public class JsonParser {
 
+    /** Part of the URL necessary for download images from the server **/
     private static final String URL_HEADER = "http://www.kogimobile.com/applicant-test";
 
     /**
-     *
-     * @param jsonObject
-     * @return
+     * Parse the response of a service in an article.
+     * @param jsonObject    response from a service.
+     * @return  a list of articles.
      */
     public static List<Article> parseResponse(JSONObject jsonObject){
         List<Article> articles = new ArrayList<>();
@@ -37,11 +39,9 @@ public class JsonParser {
                         .build();
                 articles.add(article);
             }
-
         }catch (JSONException error){
             Log.d("Error", error.getMessage());
         }
-
         return articles;
     }
 }
