@@ -17,7 +17,7 @@ The app contains a special feature. In the settings option you can select *color
 
 ### Screenshots
 
-<img src="screenshots/screenshots_1.jpg" width="400">
-<img src="screenshots/screenshots_2.jpg" width="400">
-<img src="screenshots/screenshots_3.jpg" width="400">
-<img src="screenshots/screenshots_4.jpg" width="400">
+<img src="screenshots/screenshot_1.jpg" width="400">
+<img src="screenshots/screenshot_2.jpg" width="400">
+<img src="screenshots/screenshot_3.jpg" width="400">
+<img src="screenshots/screenshot_4.jpg" width="400">
