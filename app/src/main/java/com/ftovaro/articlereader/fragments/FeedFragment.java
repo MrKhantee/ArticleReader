@@ -36,7 +36,7 @@ public class FeedFragment extends Fragment implements CommunicatorFragmentListen
     /** A list of articles. **/
     private List<Article> articlesList = new ArrayList<>();
     /** Interface to send data to the parent activity. **/
-    private WebURLSenderListener leSanti;
+    private WebURLSenderListener urlSenderListener;
     /** Adapter for the list of articles. **/
     private ArticlesAdapter articlesAdapter;
 
@@ -62,7 +62,7 @@ public class FeedFragment extends Fragment implements CommunicatorFragmentListen
             @Override
             public void onClick(View view, int position) {
                 Article article = articlesList.get(position);
-                leSanti.sendURL(article.getUrl());
+                urlSenderListener.sendURL(article.getUrl());
             }
 
             @Override
@@ -158,7 +158,7 @@ public class FeedFragment extends Fragment implements CommunicatorFragmentListen
         // Verify that the host activity implements the callback interface
         try {
             // Instantiate the NoticeDialogListener so we can send events to the host
-            leSanti = (WebURLSenderListener) context;
+            urlSenderListener = (WebURLSenderListener) context;
         } catch (ClassCastException e) {
             // The activity doesn't implement the interface, throw exception
             throw new ClassCastException(context.toString()
@@ -169,6 +169,6 @@ public class FeedFragment extends Fragment implements CommunicatorFragmentListen
     @Override
     public void onDetach() {
         super.onDetach();
-        leSanti = null;
+        urlSenderListener = null;
     }
 }
