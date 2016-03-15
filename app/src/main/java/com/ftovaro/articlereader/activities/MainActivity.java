@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity implements SettingsDialogLis
     public void onAttachFragment(android.support.v4.app.Fragment fragment) {
         super.onAttachFragment(fragment);
         try {
-            // Instantiate the NoticeDialogListener so we can send events to the host
             if(fragment instanceof FeedFragment){
                 try {
                     fragmentListener = (CommunicatorFragmentListener) fragment;
