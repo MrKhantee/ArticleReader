@@ -6,8 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 
 import com.ftovaro.articlereader.R;
 import com.ftovaro.articlereader.interfaces.WebURLLoaderListener;
@@ -23,6 +25,8 @@ public class WebFragment extends Fragment implements WebURLLoaderListener {
     /** Default URL that is loaded **/
     private static final String DEFAULT_URL = "http://www.google.com";
 
+    ProgressBar progressBar;
+
     public WebFragment() {
         // Required empty public constructor
     }
@@ -36,12 +40,16 @@ public class WebFragment extends Fragment implements WebURLLoaderListener {
         webView = (WebView) view.findViewById(R.id.webview);
 
         webView.setWebViewClient(new MyWebViewClient());
+        webView.setWebChromeClient(new CustomWebChromeViewClient());
         webView.getSettings().setBuiltInZoomControls(false);
         webView.getSettings().setSupportZoom(false);
         webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setAllowFileAccess(true);
         webView.getSettings().setDomStorageEnabled(true);
+
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+
         webView.loadUrl(DEFAULT_URL);
 
         return view;
@@ -53,6 +61,22 @@ public class WebFragment extends Fragment implements WebURLLoaderListener {
             return super.shouldOverrideUrlLoading(view, url);
         }
     }
+
+    public class CustomWebChromeViewClient extends WebChromeClient {
+        @Override
+        public void onProgressChanged(WebView view, int newProgress) {
+            {
+                if (newProgress < 100 && progressBar.getVisibility() == ProgressBar.GONE) {
+                    progressBar.setVisibility(ProgressBar.VISIBLE);
+                }
+                progressBar.setProgress(newProgress);
+                if (newProgress == 100) {
+                    progressBar.setVisibility(ProgressBar.GONE);
+                }
+            }
+        }
+    }
+
     @Override
     public void loadURL(String url) {
         webView.loadUrl(url);
